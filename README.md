@@ -9,7 +9,3 @@ Based on 'React Starterify'.
 
  1. npm install
  2. npm run watch
-
-## TODO
-
-Use a different EventEmitter implementation that supports wildcard listeners

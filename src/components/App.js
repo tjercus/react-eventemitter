@@ -1,6 +1,6 @@
 import React from "react";
 import packageJSON from "../../package.json";
-import ee from "event-emitter";
+import EventEmitter from "eventemitter2";
 import EchoComponent from "./EchoComponent";
 import MenuComponent from "./MenuComponent";
 import PanelComponent from "./PanelComponent";
@@ -9,7 +9,7 @@ export default class AppComponent extends React.Component {
 
   constructor(props) {
     super(props);
-    this.eventbus = ee({});
+    this.eventbus = new EventEmitter({wildcard: true});
   }
   
   componentDidMount() {

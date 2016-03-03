@@ -1,5 +1,5 @@
 import React from "react";
-import ee from "event-emitter";
+import EventEmitter from "eventemitter2";
 
 export default class EchoComponent extends React.Component {
 
@@ -10,13 +10,10 @@ export default class EchoComponent extends React.Component {
     }
   }
   
-  componentDidMount() {    
-    this.props.eventbus.on("ECHO_CMD", ((obj) => {
+  componentDidMount() {
+    this.props.eventbus.on("*", ((obj) => {
       this.setState({message: obj});
     }));
-    this.props.eventbus.on("MENU_CLICK_EVT", ((obj) => {
-      this.setState({message: obj});
-    }));   
   }
   
   render() {

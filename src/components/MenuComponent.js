@@ -1,5 +1,5 @@
 import React from "react";
-import ee from "event-emitter";
+import EventEmitter from "eventemitter2";
 
 export default class MenuComponent extends React.Component {
 

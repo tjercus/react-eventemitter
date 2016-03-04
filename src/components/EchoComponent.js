@@ -6,13 +6,15 @@ export default class EchoComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: "no message"
+      messages: []
     }
   }
   
   componentDidMount() {
     this.props.eventbus.on("*", ((obj) => {
-      this.setState({message: obj});
+      let messagesClone = this.state.messages.slice(0);
+      messagesClone.push(obj);
+      this.setState({messages: messagesClone});
     }));
   }
   
@@ -20,7 +22,11 @@ export default class EchoComponent extends React.Component {
     return (
       <section className="panel">
         <div className="panel-body">
-          {"Echo: " + this.state.message}
+          <ul>
+            {this.state.messages.map(function(obj, i){
+              return <li key={i}>{obj}</li>;
+            })}
+          </ul>
         </div>
       </section>
     );

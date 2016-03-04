@@ -46,7 +46,7 @@ header {
   position: relative;
   float: left;
   width: 10em;
-  height: 20em;  
+  min-height: 20em;  
   background-color: white;
   list-style: none;
   margin: 1em;  
@@ -59,7 +59,7 @@ main {
   position: relative;
   float: left;  
   width: 40em;
-  height: 20em;
+  min-height: 20em;
   padding: 1em;
   margin: 1em;  
   background-color: white;

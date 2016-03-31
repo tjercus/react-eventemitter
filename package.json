@@ -1,11 +1,11 @@
 {
-  "name": "react-eventemitter",
+  "name": "hotelbooking-react",
   "version": "0.0.1",
-  "description": "React JS application skeleton using Browserify and other awesome tools",
+  "description": "Hotelbooking demo app as a React JS application",
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tjercus/react-eventemitter"
+    "url": "https://github.com/tjercus/hotelbooking-react"
   },
   "keywords": [
     "gulp",
@@ -16,23 +16,24 @@
     "kickstarter",
     "ES6",
     "ES2015",
-    "babel",
-    "ava"
+    "babel"
   ],
   "scripts": {
     "watch": "gulp watch",
     "build": "gulp build",
     "deploy": "gulp deploy",
-    "test": "mocha"
+    "test": "mocha --compilers js:babel-core/register \"./test/**/*.spec.js\""
   },
   "author": "Tjerk Valentijn",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tjercus/react-eventemitter/issues"
+    "url": "https://github.com/tjercus/hotelbooking-react/issues"
   },
-  "homepage": "https://github.com/tjercus/react-emitter",
+  "homepage": "https://github.com/tjercus/hotelbooking-react",
   "dependencies": {
-    "eventemitter2": "^1.0.0",   
+    "chai": "^3.5.0",
+    "es6-enum": "^1.0.3",
+    "eventemitter2": "^1.0.0",
     "history": "^1.17.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.0"

@@ -1,0 +1,16 @@
+/* application specific */
+
+.users-list-panel,
+.user-edit-panel {
+    position: relative;
+    float: left;
+    margin-right: 1em;
+}
+
+.hidden {
+    display: none;
+}
+
+.show, .visible {
+    display: block;
+}

@@ -1,6 +1,7 @@
 import React from "react";
+import EventEmitter from "eventemitter2";
 
-export default class PanelComponent extends React.Component {
+export default class EchoComponent extends React.Component {
 
   constructor(props) {
     super(props);

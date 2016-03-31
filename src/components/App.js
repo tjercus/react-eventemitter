@@ -1,26 +1,19 @@
-"use strict";
-
 import React from "react";
 import packageJSON from "../../package.json";
 import EventEmitter from "eventemitter2";
-import OffersStore from "../models/OffersStore";
-import CartStore from "../models/CartStore";
+import EchoComponent from "./EchoComponent";
 import MenuComponent from "./MenuComponent";
-import OffersComponent from "./OffersComponent";
-import CartComponent from "./CartComponent";
-import RegistrationComponent from "./RegistrationComponent";
+import PanelComponent from "./PanelComponent";
 
 export default class AppComponent extends React.Component {
 
   constructor(props) {
     super(props);
-    this.eventbus = new EventEmitter({wildcard: true, delimiter: "_"});
-    this.offersStore = new OffersStore(this.eventbus);
-    this.cartStore = new CartStore(this.eventbus);
+    this.eventbus = new EventEmitter({wildcard: true});
   }
   
-  componentDidMount() {    
-    this.eventbus.emit("*_GETALL_CMD");
+  componentDidMount() {
+    this.eventbus.emit("ECHO_CMD", "echoing works!");
   }
   
   render() {
@@ -29,13 +22,16 @@ export default class AppComponent extends React.Component {
     return (
       <div>
         <header>
-          <MenuComponent eventbus={this.eventbus} />          
+          <h1>React with EventManager example {version}</h1>          
         </header>
         <article id="container">
+          <aside className="aside-nav">
+            <MenuComponent eventbus={this.eventbus} />          
+          </aside>
           <main>
-            <OffersComponent eventbus={this.eventbus} name="offers-panel" from="offers" />
-            <CartComponent eventbus={this.eventbus} name="cart-panel" from="cart" />
-            <RegistrationComponent eventbus={this.eventbus} name="registration-panel" from="registration" />
+            <EchoComponent eventbus={this.eventbus} />
+            <PanelComponent eventbus={this.eventbus} name="panel-one" from="menu-item-one" />
+            <PanelComponent eventbus={this.eventbus} name="panel-two" from="menu-item-two" />
           </main>
         </article>
       </div>

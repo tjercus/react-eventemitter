@@ -1,6 +1,6 @@
 import React from "react";
 import packageJSON from "../../package.json";
-import EventEmitter from "eventemitter2";
+import EventEmitter from "eventemitter4";
 import EchoComponent from "./EchoComponent";
 import MenuComponent from "./MenuComponent";
 import PanelComponent from "./PanelComponent";

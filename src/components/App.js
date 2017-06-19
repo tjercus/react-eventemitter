@@ -26,7 +26,7 @@ export default class AppComponent extends React.Component {
         </header>
         <article id="container">
           <aside className="aside-nav">
-            <MenuComponent eventbus={this.eventbus} />          
+            <MenuComponent eventbus={this.eventbus} />
           </aside>
           <main>
             <EchoComponent eventbus={this.eventbus} />

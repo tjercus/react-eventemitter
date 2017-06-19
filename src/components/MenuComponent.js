@@ -5,13 +5,12 @@ export default class MenuComponent extends React.Component {
 
   constructor(props) {
     super(props);
-    this.onButtonClick = this.onButtonClick.bind(this); // TODO phat arrow
   }
   
   componentDidMount() {
   }
   
-  onButtonClick(evt) {
+  onButtonClick = (evt) => {
     let name = evt.target.value;
     this.props.eventbus.emit("MENU_CLICK_EVT", name);
   };

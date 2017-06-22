@@ -6,7 +6,7 @@ export default class MenuComponent extends React.Component {
   constructor(props) {
     super(props);
   }
-  
+
   componentDidMount() {
   }
   
@@ -26,6 +26,11 @@ export default class MenuComponent extends React.Component {
         <li className="aside-submenu">
           <button onClick={this.onButtonClick} value="menu-item-two">
             {"menu item 2"}
+          </button>
+        </li>
+        <li className="aside-submenu">
+          <button onClick={this.onButtonClick} value="menu-item-three">
+            {"menu item 3"}
           </button>
         </li>
       </ul>

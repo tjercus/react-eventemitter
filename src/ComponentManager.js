@@ -4,15 +4,19 @@
  * @constructor
  */
 
+import uuid from "uuid";
+import * as React from "react";
+
 const components = new Map();
 
 export default function ComponentManager(eventbus) {
 
   const registerComponent = (componentSpec) => {
-    // TODO create a react component
-    const concreteComponent = {};
-    // add to stack
-    components.push(concreteComponent);
+    components.set(componentSpec.name, createComponent(componentSpec));
+  };
+
+  const createComponent = (componentSpec) => {
+    return React.createElement(componentSpec.type, [componentSpec.name, componentSpec.from, componentSpec.active]);
   };
 
   eventbus.on("MENU_CLICK_EVT", data => {

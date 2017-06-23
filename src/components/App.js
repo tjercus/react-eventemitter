@@ -20,12 +20,13 @@ export default class AppComponent extends React.Component {
     });
   }
 
-  static state = {
+  state = {
     displayableComponents: []
   };
-  
+
   componentDidMount() {
     this.eventbus.on("COMPONENT_ACTIVATED_EVT", (components) => {
+      console.log("COMPONENT_ACTIVATED_EVT");
       this.setState({displayableComponents: components});
     });
     this.eventbus.on("COMPONENT_DEACTIVATED_EVT", (components) => {
@@ -33,7 +34,7 @@ export default class AppComponent extends React.Component {
     });
     this.eventbus.emit("ECHO_CMD", "echoing works!");
   }
-  
+
   render() {
     const version = packageJSON.version;
 

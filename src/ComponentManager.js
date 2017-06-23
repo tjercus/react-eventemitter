@@ -19,7 +19,7 @@ export default function ComponentManager(eventbus) {
     console.log(`componentDidMount ${JSON.stringify(data)}`);
     // find component by name
     const found = components.get(data.name);
-    if (found.active === false) {
+    if (found && found.active === false) {
       // set component as active
       found.active = true;
       // writeback component into components

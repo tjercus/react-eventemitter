@@ -20,6 +20,7 @@
   ],
   "scripts": {
     "watch": "gulp watch",
+    "start": "gulp watch",
     "build": "gulp build",
     "deploy": "gulp deploy",
     "test": "mocha"
@@ -33,6 +34,7 @@
   "dependencies": {
     "eventemitter4": "^0.2.4",
     "history": "^4.6.1",
+    "immutable": "^3.8.1",
     "prop-types": "15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

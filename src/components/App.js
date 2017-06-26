@@ -5,11 +5,15 @@ import EchoComponent from "./EchoComponent";
 import MenuComponent from "./MenuComponent";
 import PanelComponent from "./PanelComponent";
 import ComponentManager from "../ComponentManager";
+import * as uuid from "uuid";
 
 export default class AppComponent extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      displayableComponents: []
+    };
     this.eventbus = new EventEmitter({wildcard: true});
     this.componentManager = ComponentManager(this.eventbus);
     this.componentManager.registerComponent({
@@ -19,10 +23,6 @@ export default class AppComponent extends React.Component {
       active: false,
     });
   }
-
-  state = {
-    displayableComponents: []
-  };
 
   componentDidMount() {
     this.eventbus.on("COMPONENT_ACTIVATED_EVT", (components) => {
@@ -37,7 +37,7 @@ export default class AppComponent extends React.Component {
 
   render() {
     const version = packageJSON.version;
-
+    console.log("DisplayableComponents.render:", JSON.stringify(this.state.displayableComponents));
     return (
       <div>
         <header>
@@ -51,7 +51,10 @@ export default class AppComponent extends React.Component {
             <EchoComponent eventbus={this.eventbus} />
             <PanelComponent eventbus={this.eventbus} name="panel-one" from="menu-item-one" />
             <PanelComponent eventbus={this.eventbus} name="panel-two" from="menu-item-two" />
-            {this.state.displayableComponents}
+            {this.state.displayableComponents.map(comp => {
+              comp.key = uuid();
+              return comp;
+            })}
           </main>
         </article>
       </div>
